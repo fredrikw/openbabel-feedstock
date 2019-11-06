@@ -1,0 +1,15 @@
+Compiling on Appveyor failed without this. Not sure why since it's using namespace std...
+
+diff --git a/src/obmolecformat.cpp b/src/obmolecformat.cpp
+index c270405eb..ee3b862cc 100644
+--- a/src/obmolecformat.cpp
++++ b/src/obmolecformat.cpp
+@@ -71,7 +71,7 @@ namespace OpenBabel
+            else
+               SepArray[0].SetTitle(pmol->GetTitle());
+
+-           copy(SepArray.begin(),SepArray.end(),back_inserter(MolArray));
++           copy(SepArray.begin(),SepArray.end(),std::back_inserter(MolArray));
+          }
+        }
+        reverse(MolArray.begin(),MolArray.end());
