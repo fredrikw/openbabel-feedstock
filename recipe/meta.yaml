@@ -43,8 +43,9 @@ test:
   commands:
     - obabel --help
     - obabel -:c1ccccc1 --gen3d -omol2
-    - obabel -:c1ccccc1 --gen3d -oinchi
-    - obabel -:c1ccccc1 -opng -O img.png
+    - obabel -:c1ccccc1 --gen3d -oinchi | grep -i inchi
+    - obabel -:c1ccccc1 -opng -O img.png 2>&1 | grep "1 molecule converted"
+    - obabel -ismi -:"CC(N)C1=CC2=C(C=C1)C=NC=C2" -osmi -xt --append logP | grep 2.95
 
 about:
   home: http://openbabel.org/
