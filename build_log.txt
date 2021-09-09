@@ -1,0 +1,126 @@
+valid configs are {'win_64_python3.6.____cpython', 'linux_64_python3.8.____cpython', 'linux_64_python3.6.____cpython', 'linux_64_python3.9.____cpython', 'win_64_python3.9.____cpython', 'osx_64_python3.7.____cpython', 'osx_64_python3.6.____cpython', 'win_64_python3.7.____cpython', 'osx_64_python3.8.____cpython', 'win_64_python3.8.____cpython', 'osx_64_python3.9.____cpython', 'linux_64_python3.7.____cpython'}
+config not selected, please choose from the following:
+
+1. linux_64_python3.6.____cpython
+2. linux_64_python3.7.____cpython
+3. linux_64_python3.8.____cpython
+4. linux_64_python3.9.____cpython
+5. osx_64_python3.6.____cpython
+6. osx_64_python3.7.____cpython
+7. osx_64_python3.8.____cpython
+8. osx_64_python3.9.____cpython
+9. win_64_python3.6.____cpython
+10. win_64_python3.7.____cpython
+11. win_64_python3.8.____cpython
+12. win_64_python3.9.____cpython
+
+> +++ dirname .scripts/run_docker_build.sh
+++ cd .scripts
+++ pwd
++ THISDIR=/home/fwr/documents/programming/openbabel-feedstock/.scripts
+++ basename /home/fwr/documents/programming/openbabel-feedstock/.scripts
++ PROVIDER_DIR=.scripts
++++ dirname .scripts/run_docker_build.sh
+++ cd .scripts/..
+++ pwd
++ FEEDSTOCK_ROOT=/home/fwr/documents/programming/openbabel-feedstock
++ RECIPE_ROOT=/home/fwr/documents/programming/openbabel-feedstock/recipe
++ '[' -z ']'
+++ basename /home/fwr/documents/programming/openbabel-feedstock
++ export FEEDSTOCK_NAME=openbabel-feedstock
++ FEEDSTOCK_NAME=openbabel-feedstock
++ docker info
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  app: Docker App (Docker Inc., v0.9.1-beta3)
+  buildx: Build with BuildKit (Docker Inc., v0.5.1-docker)
+  compose: Docker Compose (Docker Inc., 2.0.0-beta.1)
+  scan: Docker Scan (Docker Inc., v0.8.0)
+
+Server:
+ Containers: 4
+  Running: 1
+  Paused: 0
+  Stopped: 3
+ Images: 28
+ Server Version: 20.10.6
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 05f951a3781f4f2c1911b05e61c160e9c30eaa8e
+ runc version: 12644e614e25b05da6fd08a38ffa0cfe1903fdec
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 5.4.72-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 12
+ Total Memory: 24.86GiB
+ Name: docker-desktop
+ ID: 4CQC:H4XC:O5AT:JETP:W6PN:SYQU:MRSD:AELV:YURJ:GIHZ:PARU:QOYP
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: No blkio throttle.read_bps_device support
+WARNING: No blkio throttle.write_bps_device support
+WARNING: No blkio throttle.read_iops_device support
+WARNING: No blkio throttle.write_iops_device support
+++ id -u
++ export HOST_USER_ID=1000
++ HOST_USER_ID=1000
++ hash docker-machine
++ ARTIFACTS=/home/fwr/documents/programming/openbabel-feedstock/build_artifacts
++ '[' -z linux_64_python3.9.____cpython ']'
++ '[' -z '' ']'
+++ shyaml -h
+.scripts/run_docker_build.sh: line 46: shyaml: command not found
+++ echo NO
++ SHYAML_INSTALLED=NO
++ '[' NO == NO ']'
++ echo 'WARNING: DOCKER_IMAGE variable not set and shyaml not installed. Falling back to condaforge/linux-anvil-comp7'
+WARNING: DOCKER_IMAGE variable not set and shyaml not installed. Falling back to condaforge/linux-anvil-comp7
++ DOCKER_IMAGE=condaforge/linux-anvil-comp7
++ mkdir -p /home/fwr/documents/programming/openbabel-feedstock/build_artifacts
++ DONE_CANARY=/home/fwr/documents/programming/openbabel-feedstock/build_artifacts/conda-forge-build-done-linux_64_python3.9.____cpython
++ rm -f /home/fwr/documents/programming/openbabel-feedstock/build_artifacts/conda-forge-build-done-linux_64_python3.9.____cpython
++ DOCKER_RUN_ARGS=
++ '[' -z '' ']'
++ DOCKER_RUN_ARGS='-it '
++ export UPLOAD_PACKAGES=False
++ UPLOAD_PACKAGES=False
++ docker run -it -v /home/fwr/documents/programming/openbabel-feedstock/recipe:/home/conda/recipe_root:rw,z -v /home/fwr/documents/programming/openbabel-feedstock:/home/conda/feedstock_root:rw,z -e CONFIG -e HOST_USER_ID -e UPLOAD_PACKAGES -e GIT_BRANCH -e UPLOAD_ON_BRANCH -e CI -e FEEDSTOCK_NAME -e CPU_COUNT -e BUILD_WITH_CONDA_DEBUG -e BUILD_OUTPUT_ID -e BINSTAR_TOKEN -e FEEDSTOCK_TOKEN -e STAGING_BINSTAR_TOKEN condaforge/linux-anvil-comp7 bash /home/conda/feedstock_root/.scripts/build_steps.sh
+selected linux_64_python3.9.____cpython
+Traceback (most recent call last):
+  File "/home/fwr/documents/programming/openbabel-feedstock/build-locally.py", line 75, in <module>
+    main()
+  File "/home/fwr/documents/programming/openbabel-feedstock/build-locally.py", line 71, in main
+    run_docker_build(ns)
+  File "/home/fwr/documents/programming/openbabel-feedstock/build-locally.py", line 23, in run_docker_build
+    subprocess.check_call([script])
+  File "/home/fwr/miniconda3/lib/python3.9/subprocess.py", line 373, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['.scripts/run_docker_build.sh']' returned non-zero exit status 139.

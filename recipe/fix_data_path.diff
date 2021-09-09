@@ -2,17 +2,22 @@ diff --git a/src/tokenst.cpp b/src/tokenst.cpp
 index 2ab6454..badfade 100644
 --- src/tokenst.cpp
 +++ src/tokenst.cpp
-@@ -206,7 +206,13 @@ namespace OpenBabel
+@@ -206,7 +206,18 @@ namespace OpenBabel
      string file;
      const char* datadir = getenv(envvar.c_str());
      if(!datadir)
 +    {
        datadir = BABEL_DATADIR;
++      puts("Got datadir from macro");
 +    }
-+    //puts(datadir);
++    else
++    {
++      puts("Got datadir from env");
++    }
++    puts(datadir);
 +    std::string tempstring = string(datadir);
 +    datadir = tempstring.c_str();
-+    //puts(datadir);
++    puts(datadir);
  
      // check the subdirectory for this version number
      file = datadir;

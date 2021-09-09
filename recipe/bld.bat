@@ -15,8 +15,19 @@ if errorlevel 1 exit 1
 cmake --build . --target install --config Release
 if errorlevel 1 exit 1
 
-echo d|xcopy %LIBRARY_PREFIX%\bin\data %PREFIX%\share\openbabel /e /c
+type %LIBRARY_PREFIX%\include\openbabel3\openbabel\babelconfig.h
+
+echo d|xcopy %LIBRARY_PREFIX%\bin\data %LIBRARY_PREFIX%\share\openbabel /e /c
 rmdir /s /q %LIBRARY_PREFIX%\bin\data
 
 xcopy %LIBRARY_PREFIX%\Lib\site-packages %PREFIX%\Lib /e /c
 rmdir /s /q %LIBRARY_PREFIX%\Lib\site-packages
+
+@REM setlocal EnableDelayedExpansion
+
+@REM :: Copy the [de]activate scripts to %PREFIX%\etc\conda\[de]activate.d.
+@REM :: This will allow them to be run on environment activation.
+@REM for %%F in (activate deactivate) DO (
+@REM     if not exist %PREFIX%\etc\conda\%%F.d mkdir %PREFIX%\etc\conda\%%F.d
+@REM     copy %RECIPE_DIR%\%%F-env_vars.bat %PREFIX%\etc\conda\%%F.d\%PKG_NAME%_%%F-env_vars.bat
+@REM )
